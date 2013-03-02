@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout" 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+	android:background="@drawable/webbg" 
+    android:orientation="vertical">
+    <RelativeLayout 
+        android:id="@+id/gTopliner" 
+        android:layout_width="fill_parent" 
+        android:layout_height="50dip"
+        android:background="@drawable/topbg"
+        >
+    <Button
+        android:layout_width="64dip"
+        android:layout_height="30dip"
+        android:id="@+id/btn_back" 
+        android:layout_marginLeft="2dip"
+        android:layout_marginTop="10dip"
+        android:background="@drawable/returnbutton1_style"
+        android:text="@string/financehelper"
+        android:textSize="10sp"
+        />
+    <TextView 
+	    style="@style/textViewTitle"
+        android:id="@+id/tv_title"
+        android:text="@string/userfunctuon"
+        />
+    </RelativeLayout>
+    <LinearLayout
+	    android:orientation="vertical" 
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:background="#FFFFFF"
+	    >
+	    <ListView
+	        android:id="@+id/secondMenulistView"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content" 
+	        android:divider="#EDEDED"
+	        android:dividerHeight="2px"
+	        android:cacheColorHint="#00000000">
+	    </ListView>
+    </LinearLayout>
+    <!-- android:cacheColorHint="#00000000"滑动listView时透明 -->
+</LinearLayout>

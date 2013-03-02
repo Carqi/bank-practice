@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/default_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="42dip"
+        android:background="@drawable/title_bg"
+        android:gravity="center_vertical" >
+
+        <Button
+            android:id="@+id/returnButton"
+            android:layout_width="55dip"
+            android:layout_height="30dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/returnbutton_style"
+            android:gravity="center"
+            android:text="@string/return_button"
+            android:textColor="#ffffff" />
+
+        <TextView
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="@string/selfreg_title" />
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="55dip"
+            android:layout_height="30dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:background="@drawable/nextbutton_style"
+            android:gravity="center"
+            android:text="@string/next_button"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="25dip" >
+
+            <TextView
+                style="@style/TextStyle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dip"
+                android:layout_marginLeft="25dip"
+                android:layout_marginRight="25dip"
+                android:layout_marginTop="15dip"
+                android:text="注册卡（账）号" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:background="@drawable/dock2"
+                android:orientation="vertical" >
+
+                
+                
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="10dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="证件类型" />
+
+                    <TextView
+                        android:id="@+id/CertificateTextSpinner"
+                        android:layout_width="180dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="10dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="证件类型" />
+
+                    <Spinner
+                        android:id="@+id/CertificateSpinner"
+                        android:layout_width="180dip"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:src="#ffcccc" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42.0dip"
+                    android:paddingLeft="12.0dip"
+                    android:paddingRight="10.0dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="证件号码" />
+
+                    <EditText
+                        android:id="@+id/CardNum"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="155.0dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:hint="请输入证件号码"
+                        android:maxLength="19" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/dock2"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="10dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="用户账号" />
+
+                    <EditText
+                        android:id="@+id/account"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="155.0dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:hint="请输入账号"
+                        android:maxLength="19" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:src="#ffcccc" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42.0dip"
+                    android:paddingLeft="12.0dip"
+                    android:paddingRight="10.0dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="核对账号" />
+
+                    <EditText
+                        android:id="@+id/second_account"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="155.0dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:hint="请再输一遍账号"
+                        android:maxLength="19" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/dock2"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="10dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="客户姓名" />
+
+                    <EditText
+                        android:id="@+id/Name"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="155.0dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:hint="请输入姓名"
+                        android:maxLength="19" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:src="#ffcccc" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42.0dip"
+                    android:paddingLeft="12.0dip"
+                    android:paddingRight="10.0dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="手机号码" />
+
+                    <EditText
+                        android:id="@+id/Telephone"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="155.0dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:hint="请输入手机号码"
+                        android:maxLength="19" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:layout_marginRight="20dip"
+                android:layout_marginTop="15dip"
+                android:background="@drawable/dock2"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="10dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="登陆密码" />
+
+                    <EditText
+                        android:id="@+id/Password"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="155.0dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:hint="请输入密码"
+                        android:maxLength="19" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:src="#ffcccc" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:paddingTop="5dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3.0dip"
+                        android:maxEms="15"
+                        android:text="密码为6到30位字母、数字或其组合并区分大小写"
+                        android:textSize="11.0sp" />
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="建议输入8位以上字母、数字混合密码，请避免设置安全性过低的密码"
+                        android:textColor="#ff0066ff"
+                        android:textSize="11.0sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:src="#ffcccc" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="42dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="12dip"
+                    android:paddingRight="10dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="重复密码" />
+
+                    <EditText
+                        android:id="@+id/PasswordConfirm"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="155.0dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:hint="请再次输入密码"
+                        android:maxLength="19" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20.0dip"
+                android:layout_marginRight="20.0dip"
+                android:layout_marginTop="15.0dip"
+                android:background="@drawable/dock2"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="52.0dip"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="12.0dip"
+                    android:paddingRight="10.0dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:text="用户住址" />
+
+                    <EditText
+                        android:id="@+id/address"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="155.0dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:hint="请输入"
+                        android:maxLength="30" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0dip"
+                    android:src="#ffcccccc" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="5.0dip"
+                    android:paddingLeft="10.0dip"
+                    android:paddingRight="10.0dip"
+                    android:paddingTop="5.0dip" >
+
+                    <TextView
+                        style="@style/EditBoxTextStyle"
+                        android:layout_centerVertical="true"
+                        android:maxEms="17"
+                        android:text="登陆后请核实回显信息是否与预留一致"
+                        android:textSize="11.0sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
