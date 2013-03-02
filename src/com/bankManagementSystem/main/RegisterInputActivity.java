@@ -6,19 +6,14 @@ import java.util.List;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bankManagementSystem.domain.SecondMenu;
 import com.bankManagementSystem.domain.TextSpinnerItem;
 import com.bankManagementSystem.model.User;
 import com.bankManagementSystem.util.BaseActivity;
@@ -28,7 +23,6 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 	private static final String TAG = "RegisterInputActivity";
 	private Button btn_return;
 	private Button btn_next;
-	private Spinner spinner;
 	private TextView textSpinner;
 	private EditText et_Card;
 	private EditText et_account;
@@ -39,7 +33,6 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 	private EditText et_secondpassword;
 	private EditText et_address;
 	
-	private ListView listView;
 	
 	private List<TextSpinnerItem> list;
 	public static int RESULT = 1;
@@ -67,47 +60,12 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 			list.add(textItem);
 		}
 		
-		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, certificates);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinner.setAdapter(adapter);
-		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int position, long arg3) {
-				certificate = certificates[position];
-				;
-
-			}
-
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-
-			}
-		});
-		//listView.setAdapter(adapter);
-		spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-			public void onItemSelected(AdapterView<?> arg0, View arg1,
-					int position, long arg3) {
-				certificate = certificates[position];
-				;
-
-			}
-
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
-
-			}
-		});
 		btn_next.setOnClickListener(this);
 	}
 	//¼ÓÔØ¸÷View¿Ø¼þ
 	private void setupView() {
 		btn_return = (Button) findViewById(R.id.returnButton);
 		btn_next = (Button) findViewById(R.id.nextButton);
-		spinner = (Spinner) findViewById(R.id.CertificateSpinner);
 		textSpinner = (TextView) findViewById(R.id.CertificateTextSpinner);
 		et_Card = (EditText) findViewById(R.id.CardNum);
 		et_account = (EditText) findViewById(R.id.account);
@@ -205,8 +163,10 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		String certificate = data.getStringExtra("certificate");
-		textSpinner.setText(certificate);		
+		if(resultCode == 30){
+			String certificate = data.getStringExtra("certificate");
+			textSpinner.setText(certificate);
+		}		
 	}
 
 }

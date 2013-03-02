@@ -85,37 +85,28 @@
                         style="@style/EditBoxTextStyle"
                         android:layout_centerVertical="true"
                         android:text="证件类型" />
-
+					<TextView
+                        android:id="@+id/temp"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="20.0dip"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:textSize="18sp"
+                        android:shadowDx="0.2"
+                        android:shadowDy="0.0"
+                        android:shadowRadius="0.2"
+                        android:shadowColor="#000000"
+                        android:text=">" />
                     <TextView
                         android:id="@+id/CertificateTextSpinner"
-                        android:layout_width="180dip"
+                        style="@style/EditBoxStyle"
+                        android:layout_width="135.0dip"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true" />
-                </RelativeLayout>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                <RelativeLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="42dip"
-                    android:layout_gravity="center_vertical"
-                    android:paddingLeft="12dip"
-                    android:paddingRight="10dip" >
-
-                    <TextView
-                        style="@style/EditBoxTextStyle"
                         android:layout_centerVertical="true"
-                        android:text="证件类型" />
-
-                    <Spinner
-                        android:id="@+id/CertificateSpinner"
+                        android:layout_toLeftOf="@id/temp"
+                        />
+                    <TextView
+                        android:id="@+id/CertificateTextSpinner"
                         android:layout_width="180dip"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
