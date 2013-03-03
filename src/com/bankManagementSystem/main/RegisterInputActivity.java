@@ -5,12 +5,16 @@ import java.util.Calendar;
 import java.util.List;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +22,9 @@ import com.bankManagementSystem.domain.TextSpinnerItem;
 import com.bankManagementSystem.model.User;
 import com.bankManagementSystem.util.BaseActivity;
 
-public class RegisterInputActivity extends BaseActivity implements OnClickListener {
-	
+public class RegisterInputActivity extends BaseActivity implements
+		OnClickListener {
+
 	private static final String TAG = "RegisterInputActivity";
 	private Button btn_return;
 	private Button btn_next;
@@ -32,13 +37,13 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 	private EditText et_password;
 	private EditText et_secondpassword;
 	private EditText et_address;
-	
-	
+	private RelativeLayout layout;
+
 	private List<TextSpinnerItem> list;
 	public static int RESULT = 1;
 	public static int REQUEST = 0;
-	private String[] certificates = new String[] { "Éí·İÖ¤", "Ñ§ÉúÖ¤", "³öÉúÖ¤", "»¤ÕÕ",
-			"ÆäËûÖ¤¼ş" };
+	private String[] certificates = new String[] { "èº«ä»½è¯", "å­¦ç”Ÿè¯", "å‡ºç”Ÿè¯", "æŠ¤ç…§",
+			"å…¶ä»–è¯ä»¶" };
 	String certificate = null;
 
 	@Override
@@ -52,17 +57,47 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 		btn_next.setOnClickListener(this);
 		btn_return.setOnClickListener(this);
 		list = new ArrayList<TextSpinnerItem>();
-		// ¸³ÖµÊµÌåÀà¶ÔÏó
+		// èµ‹å€¼å®ä½“ç±»å¯¹è±¡
 		for (int i = 0; i < certificates.length; i++) {
 			TextSpinnerItem textItem = new TextSpinnerItem();
 			textItem.setItemid(i);
 			textItem.setItemname(certificates[i]);
 			list.add(textItem);
 		}
-		
+		/*è®¾ç½®å¸ƒå±€ç‚¹å‡»å±æ€§
+		 * layout.setOnTouchListener(new OnTouchListener() {
+			public boolean onTouch(View v, MotionEvent event) {
+				switch (event.getAction()) {
+				case MotionEvent.ACTION_DOWN:
+					System.out.println("ACTION_DOWN");
+					Log.i(TAG, String.valueOf(v.isPressed()));
+					layout.setBackgroundColor(Color.BLUE);
+					textSpinner.setPressed(true);
+					textSpinner.setOnClickListener(new OnClickListener() {
+						
+						public void onClick(View v) {
+							Log.i(TAG, "here it's me ");
+							Intent intent = new Intent(getApplicationContext(), TextItemActivity.class);
+							intent.putExtra("certificates", certificates);
+							startActivityForResult(intent, 200);
+							
+						}
+					});
+					break;
+				case MotionEvent.ACTION_UP:
+					System.out.println("ACTION_UP");
+					Log.i(TAG, String.valueOf(v.isPressed()));
+					layout.setBackgroundColor(Color.TRANSPARENT);
+					textSpinner.setPressed(v.isPressed());
+					break;
+				}
+				return false;
+			}
+		});*/
 		btn_next.setOnClickListener(this);
 	}
-	//¼ÓÔØ¸÷View¿Ø¼ş
+
+	// åŠ è½½å„Viewæ§ä»¶
 	private void setupView() {
 		btn_return = (Button) findViewById(R.id.returnButton);
 		btn_next = (Button) findViewById(R.id.nextButton);
@@ -75,7 +110,8 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 		et_password = (EditText) findViewById(R.id.Password);
 		et_secondpassword = (EditText) findViewById(R.id.PasswordConfirm);
 		et_address = (EditText) findViewById(R.id.address);
-		
+		layout = (RelativeLayout) findViewById(R.id.Certificate_Layout);
+
 	}
 
 	public void onClick(View v) {
@@ -83,54 +119,55 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 			Intent intent = new Intent(this, TextItemActivity.class);
 			intent.putExtra("certificates", certificates);
 			startActivityForResult(intent, 200);
-			
+
 		} else if (v == btn_next) {
 			String indetify = et_Card.getText().toString();
 			String account = et_account.getText().toString();
-			String secondaccount=et_secondaccount.getText().toString();
+			String secondaccount = et_secondaccount.getText().toString();
 			String username = et_name.getText().toString();
 			String phone = et_phone.getText().toString();
 			String password = et_password.getText().toString();
 			String secondPassword = et_secondpassword.getText().toString();
 			String address = et_address.getText().toString();
 			if (null == indetify || indetify.equals("")) {
-				Toast.makeText(this, "Ö¤¼şºÅÂë²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
-               return ;
+				Toast.makeText(this, "è¯ä»¶å·ç ä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();
+				return;
 			}
-			if(indetify.length()!=18){
-				Toast.makeText(this, "Ö¤¼şºÅÂë¸ñÊ½²»¶Ô", Toast.LENGTH_SHORT).show();
+			if (indetify.length() != 18) {
+				Toast.makeText(this, "è¯ä»¶å·ç æ ¼å¼ä¸å¯¹", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			if (null == account || account.equals("")) {
-				Toast.makeText(this, "ÓÃ»§ÕËºÅ²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
-              return;
+				Toast.makeText(this, "ç”¨æˆ·è´¦å·ä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();
+				return;
 			}
 			if (!account.equals(secondaccount)) {
-				Toast.makeText(this, "ÕËºÅÊäÈë²»Ò»ÖÂ£¬ÇëÖØĞÂÊäÈë", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "è´¦å·è¾“å…¥ä¸ä¸€è‡´ï¼Œè¯·é‡æ–°è¾“å…¥", Toast.LENGTH_SHORT)
+						.show();
 				return;
 			}
 			if (null == username || username.equals("")) {
-				Toast.makeText(this, "ÓÃ»§ĞÕÃû²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
-              return;
-			}
-			if (null == phone || phone.equals("")) {
-				Toast.makeText(this, "ÊÖ»úºÅÂë²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
-              return;
-			}
-			if (null == password || password.equals("")) {
-				Toast.makeText(this, "ÃÜÂë²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
-              return;
-			}
-			if(password.length()<6||password.length()>30){
-				Toast.makeText(this, "ÃÜÂë¸ñÊ½´íÎó", Toast.LENGTH_SHORT).show();
-				return ;
-			}
-			if (!password.equals(secondPassword)) {
-				Toast.makeText(this, "ÃÜÂëÊäÈë²»Ò»ÖÂ£¬ÇëÖØĞÂÊäÈë", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, "ç”¨æˆ·å§“åä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();
 				return;
 			}
-			if (null==address||address.equals("")) {
-				Toast.makeText(this, "µØÖ·²»ÄÜÎª¿Õ", Toast.LENGTH_SHORT).show();
+			if (null == phone || phone.equals("")) {
+				Toast.makeText(this, "æ‰‹æœºå·ç ä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();
+				return;
+			}
+			if (null == password || password.equals("")) {
+				Toast.makeText(this, "å¯†ç ä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();
+				return;
+			}
+			if (password.length() < 6 || password.length() > 30) {
+				Toast.makeText(this, "å¯†ç æ ¼å¼é”™è¯¯", Toast.LENGTH_SHORT).show();
+				return;
+			}
+			if (!password.equals(secondPassword)) {
+				Toast.makeText(this, "å¯†ç è¾“å…¥ä¸ä¸€è‡´ï¼Œè¯·é‡æ–°è¾“å…¥", Toast.LENGTH_LONG).show();
+				return;
+			}
+			if (null == address || address.equals("")) {
+				Toast.makeText(this, "åœ°å€ä¸èƒ½ä¸ºç©º", Toast.LENGTH_SHORT).show();
 				return;
 			}
 			User user = new User();
@@ -153,20 +190,22 @@ public class RegisterInputActivity extends BaseActivity implements OnClickListen
 		}
 	}
 
-	// »ñµÃµ±Ç°Ê±¼ä£¬°´XX-XX-XXÊä³ö
+	// è·å¾—å½“å‰æ—¶é—´ï¼ŒæŒ‰XX-XX-XXè¾“å‡º
 	private String getTime() {
 		String time = null;
 		Calendar calendar = Calendar.getInstance();
-		time = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH)+1)
-				+ "-" + calendar.get(Calendar.DATE);
+		time = calendar.get(Calendar.YEAR) + "-"
+				+ (calendar.get(Calendar.MONTH) + 1) + "-"
+				+ calendar.get(Calendar.DATE);
 		return time;
 	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(resultCode == 30){
-			String certificate = data.getStringExtra("certificate");
+		if (resultCode == 30) {
+			certificate = data.getStringExtra("certificate");
 			textSpinner.setText(certificate);
-		}		
+		}
 	}
 
 }

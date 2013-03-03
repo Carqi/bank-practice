@@ -75,9 +75,11 @@
                 
                 
                 <RelativeLayout
+                    android:id="@+id/Certificate_Layout"
                     android:layout_width="fill_parent"
                     android:layout_height="42dip"
                     android:layout_gravity="center_vertical"
+                    android:clickable="true"
                     android:paddingLeft="12dip"
                     android:paddingRight="10dip" >
 
@@ -105,12 +107,6 @@
                         android:layout_centerVertical="true"
                         android:layout_toLeftOf="@id/temp"
                         />
-                    <TextView
-                        android:id="@+id/CertificateTextSpinner"
-                        android:layout_width="180dip"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true" />
                 </RelativeLayout>
 
                 <ImageView
