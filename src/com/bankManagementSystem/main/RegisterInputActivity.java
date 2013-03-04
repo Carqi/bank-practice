@@ -64,36 +64,31 @@ public class RegisterInputActivity extends BaseActivity implements
 			textItem.setItemname(certificates[i]);
 			list.add(textItem);
 		}
-		/*设置布局点击属性
-		 * layout.setOnTouchListener(new OnTouchListener() {
+		layout.setOnTouchListener(new OnTouchListener() {
 			public boolean onTouch(View v, MotionEvent event) {
 				switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:
 					System.out.println("ACTION_DOWN");
 					Log.i(TAG, String.valueOf(v.isPressed()));
-					layout.setBackgroundColor(Color.BLUE);
-					textSpinner.setPressed(true);
-					textSpinner.setOnClickListener(new OnClickListener() {
-						
-						public void onClick(View v) {
-							Log.i(TAG, "here it's me ");
-							Intent intent = new Intent(getApplicationContext(), TextItemActivity.class);
-							intent.putExtra("certificates", certificates);
-							startActivityForResult(intent, 200);
-							
-						}
-					});
+					layout.setBackgroundColor(Color.parseColor("#BEBEBE"));
 					break;
 				case MotionEvent.ACTION_UP:
 					System.out.println("ACTION_UP");
 					Log.i(TAG, String.valueOf(v.isPressed()));
 					layout.setBackgroundColor(Color.TRANSPARENT);
-					textSpinner.setPressed(v.isPressed());
+					Intent intent = new Intent(getApplicationContext(),
+							TextItemActivity.class);
+					intent.putExtra("certificates", certificates);
+					startActivityForResult(intent, 200);
+					break;
+				case MotionEvent.ACTION_MOVE:
+					System.out.println("ACTION_MOVE");
+					layout.setBackgroundColor(Color.TRANSPARENT);
 					break;
 				}
 				return false;
 			}
-		});*/
+		});
 		btn_next.setOnClickListener(this);
 	}
 
@@ -116,6 +111,23 @@ public class RegisterInputActivity extends BaseActivity implements
 
 	public void onClick(View v) {
 		if (v == textSpinner) {
+			v.setOnTouchListener(new OnTouchListener() {
+				
+				public boolean onTouch(View v, MotionEvent event) {
+					switch (event.getAction()){
+						case MotionEvent.ACTION_DOWN:
+							layout.setBackgroundColor(Color.parseColor("#BEBEBE"));
+							break;
+						case MotionEvent.ACTION_UP:
+							layout.setBackgroundColor(Color.TRANSPARENT);
+							break;
+						case MotionEvent.ACTION_MOVE:
+							layout.setBackgroundColor(Color.TRANSPARENT);
+							break;
+					}
+					return false;
+				}
+			});
 			Intent intent = new Intent(this, TextItemActivity.class);
 			intent.putExtra("certificates", certificates);
 			startActivityForResult(intent, 200);
