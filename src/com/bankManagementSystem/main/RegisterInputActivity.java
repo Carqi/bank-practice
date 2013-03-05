@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.bankManagementSystem.domain.TextSpinnerItem;
 import com.bankManagementSystem.model.User;
 import com.bankManagementSystem.util.BaseActivity;
+import com.bankManagementSystem.util.RegexChk;
 
 public class RegisterInputActivity extends BaseActivity implements
 		OnClickListener {
@@ -166,6 +167,18 @@ public class RegisterInputActivity extends BaseActivity implements
 				Toast.makeText(this, "手机号码不能为空", Toast.LENGTH_SHORT).show();
 				return;
 			}
+			if (phone.length() != 11) {
+				Toast.makeText(this, "手机号码格式有误", Toast.LENGTH_SHORT).show();
+				return;
+			} 
+			if (phone.length() == 11) {
+				RegexChk regexChk = new RegexChk();
+				boolean result = regexChk.checkCellPhone(phone);
+				if(!result){
+					Toast.makeText(this, "手机号码格式有误", Toast.LENGTH_SHORT).show();
+					return;
+				}
+			} 
 			if (null == password || password.equals("")) {
 				Toast.makeText(this, "密码不能为空", Toast.LENGTH_SHORT).show();
 				return;

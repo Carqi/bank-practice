@@ -248,7 +248,8 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:hint="请输入手机号码"
-                        android:maxLength="19" />
+                        android:numeric="integer"
+                        android:maxLength="11" />
                 </RelativeLayout>
             </LinearLayout>
 

@@ -15,7 +15,8 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f040000;
-        public static final int textspinner=0x7f040002;
+        public static final int gray=0x7f040002;
+        public static final int textspinner=0x7f040003;
         public static final int white=0x7f040001;
     }
     public static final class drawable {
@@ -53,12 +54,13 @@ public final class R {
         public static final int returnbutton1_style=0x7f02001f;
         public static final int returnbutton_style=0x7f020020;
         public static final int rightbuttonbg=0x7f020021;
-        public static final int title_bg=0x7f020022;
-        public static final int title_button=0x7f020023;
-        public static final int title_button_press=0x7f020024;
-        public static final int topbg=0x7f020025;
-        public static final int two=0x7f020026;
-        public static final int webbg=0x7f020027;
+        public static final int textspinner_selector=0x7f020022;
+        public static final int title_bg=0x7f020023;
+        public static final int title_button=0x7f020024;
+        public static final int title_button_press=0x7f020025;
+        public static final int topbg=0x7f020026;
+        public static final int two=0x7f020027;
+        public static final int webbg=0x7f020028;
     }
     public static final class id {
         public static final int CardNum=0x7f090004;
